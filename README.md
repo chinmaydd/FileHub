@@ -1,7 +1,8 @@
 FileHub
 =======
 
-A file hub wherein users can upload and download files built using Ruby on Rails. 
+A file hub wherein users can upload and download files built using Ruby on Rails.
+
 This is an IEEE summer project, 2014.
 
 Contributing
