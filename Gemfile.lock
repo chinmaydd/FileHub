@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: a424b82daed0247d5926ddbff14dffb8553b1695
+  specs:
+    paperclip (4.1.1)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -52,11 +62,6 @@ GEM
     multi_json (1.10.1)
     mysql2 (0.3.16)
     orm_adapter (0.5.0)
-    paperclip (4.1.1)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
-      mime-types
     polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -110,7 +115,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   devise (~> 3.2.4)
   mysql2
-  paperclip (~> 4.1.1)
+  paperclip!
   rails (= 4.1.1)
   sdoc (~> 0.4.0)
   spring

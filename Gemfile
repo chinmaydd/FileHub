@@ -39,7 +39,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 # Use paperclip for easy upload management
-gem 'paperclip', '~> 4.1.1'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 
 # Use devise for authentication
 gem 'devise', '~> 3.2.4'
