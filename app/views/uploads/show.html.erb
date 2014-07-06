@@ -1,2 +1,41 @@
-<h1>Uploads#show</h1>
-<p>Find me in app/views/uploads/show.html.erb</p>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="file show">
+	<h2>Show File: upload.doc_file_name</h2>
+
+	<table summary="File detail view">
+		<tr>
+			<th>File ID</th>
+			<td><%= @upload.id %></td>
+		</tr>
+		<tr>
+			<th>Name</th>
+			<td><%= @upload.doc_file_name %></td>
+		</tr>
+		<tr>
+			<th>Uploader's ID</th>
+			<td><%= @upload.user_id %></td>
+		</tr>
+		<tr>
+			<th>File Size</th>
+			<td><%= @upload.doc_file_size %></td>
+		</tr>
+		<tr>
+			<th>Content Type</th>
+			<td><%= @upload.doc_content_type %></td>
+		</tr>
+		<tr>
+			<th>Created</th>
+			<td><%= @upload.created_at %></td>
+		</tr>
+		<tr>
+			<th>Updated</th>
+			<td><%= @upload.updated_at %></td>
+		</tr>
+		<tr>
+			<th>No. of Downloads</th>
+			<td><%= @upload.no_of_downloads %></td>
+		</tr>
+	</table>
+</div>
+

@@ -3,5 +3,6 @@ class UploadsController < ApplicationController
   end
 
   def show
+  	@upload = Upload.find(params[:id])
   end
 end
