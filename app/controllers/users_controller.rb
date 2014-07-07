@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def destroy
   	user = User.find(params[:id])
     user.destroy
-    flash[:notice] = "User '#{user.name}' destroyed successfully!"
+    flash[:notice] = "User '#{user.username}' destroyed successfully!"
     redirect_to(:action => 'index')
   end
 
