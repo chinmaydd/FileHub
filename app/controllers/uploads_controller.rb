@@ -1,9 +1,9 @@
 class UploadsController < ApplicationController
   def index
-  	@upload=Upload.all
+  	@uploads=Upload.all
   end
 
   def show
-  	@uploads = Upload.find(params[:id])
+  	@upload = Upload.find(params[:id])
   end
 end
