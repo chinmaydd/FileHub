@@ -1,2 +1,20 @@
-<h1>Uploads#index</h1>
-<p>Find me in app/views/uploads/index.html.erb</p>
+<div class="uploads index">
+  <h2>Uploads</h2>
+
+  <table class="listing" summary="Upload list">
+    <tr class="header">
+      <th>&nbsp;</th>
+      <th>File name</th>
+      <th>File Type</th>
+    </tr>
+    <% @uploads.each do |upload| %>
+    <tr>
+      <td><%= upload.doc_file_name %></td>
+      <td class="center"><%= upload.doc_content_type %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show' , :id => upload.id}, :class => 'action show') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
