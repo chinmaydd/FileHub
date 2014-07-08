@@ -1,6 +1,6 @@
 class UploadsController < ApplicationController
   def index
-  	@uploads=Upload.all
+  	@uploads=Upload.all.sorted
   end
 
   def show
