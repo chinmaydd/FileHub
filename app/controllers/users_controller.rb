@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_param)
     if @user.save
       flash[:notice] = 'User created.'
-      redirect_to(:action => 'index')
+      redirect_to(:action => 'index', :controller => 'uploads')
     else
       render("new")
     end
