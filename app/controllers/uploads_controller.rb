@@ -14,10 +14,13 @@ end
   end
 
   def attempt_login
-  	if params[:username].present? && params[:password].present?
-  		found_user = User.where(:username => params[:username]).first
+    puts params[:user][:username]+params[:user][:password]
+  	if params[:user][:username].present? && params[:user][:password].present?
+  		found_user = User.where(:username => params[:user][:username]).first
   		if found_user
-  			authorized_user = found_user.authenticate(params[:password])
+        if found_user.password==params[:user][:password]
+  			 authorized_user = found_user
+        end
   		end
   	end
   	if authorized_user
