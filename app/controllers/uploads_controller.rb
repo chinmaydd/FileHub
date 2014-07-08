@@ -3,6 +3,12 @@ class UploadsController < ApplicationController
   	@uploads=Upload.all.sorted
   end
 
+
+def home
+	
+end
+
+
   def show
   	@upload = Upload.find(params[:id])
   end

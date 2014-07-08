@@ -1,0 +1,29 @@
+ <h1>Home Page</h1>
+
+ <br><h2>User Login here</h2>
+
+<%= form_for(:user, :url => {:action => 'attempt_login'}) do |f| %>
+
+<table summary="User login field">
+  <tr>
+    <th><%= f.label(:username) %></th>
+    <td><%= f.text_field(:username) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:password) %></th>
+    <td><%= f.password_field(:password) %></td>
+  </tr>
+</table>
+
+<div class="form-buttons">
+  <%= submit_tag("Login") %>
+</div>
+
+<br><h2>No iD? Sign Up now!</h2>
+
+<%= link_to(" Sign Up", {:action => 'new', :controller => 'user'}) %>
+
+<%end %>
+
+</div>
+
