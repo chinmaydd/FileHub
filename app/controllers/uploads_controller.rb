@@ -7,9 +7,8 @@ class UploadsController < ApplicationController
   end
 
 
-def home
-	
-end
+  def home
+  end
 
 
   def show
@@ -35,6 +34,26 @@ end
   		flash[:notice] = "Invalid username/password combination."
   		redirect_to(:action => 'home')
   	end
+  end
+
+  def new
+    @upload = Upload.new(:name => "default", :description => "your description here")
+  end
+
+  def create
+    @upload = Upload.new(upload_params)
+    if @upload.save
+      flash[:notice] = "Uploaded successfully!"      
+      redirect_to(:action => 'index')
+    else
+      render("new")
+    end
+  end
+
+  private
+
+  def upload_params
+    params.require(:upload).permit(:name, :description, :doc_file_name, :doc_content_type, :doc_file_size, :doc_updated_at)
   end
 
 end
