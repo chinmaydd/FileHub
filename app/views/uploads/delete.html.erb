@@ -1,0 +1,17 @@
+<%= link_to("<< Back to list", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="Uploads delete">
+  <h2>Delete Uploaded File</h2>
+
+  <%= form_for(:upload, :url => {:action => 'destroy', :id => @upload.id}) do |f| %>
+
+    <p>Are you sure you want to permanently delete this uploaded file?</p>
+
+    <p class="reference-name"><%= @upload.name %></p>
+
+    <div class="form-buttons">
+      <%= submit_tag("Delete File") %>
+    </div>
+
+  <% end %>
+</div>
