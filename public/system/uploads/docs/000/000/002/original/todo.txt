@@ -1,0 +1,21 @@
+* Add authentication for actions
+* Create a 'new' form for uploads
+* Allow user-specific file uploads, attribute files to their users (use name, not id)
+* Count no. of downloads of each file, save it in existing db variable
+* Make the site look prettier
+
+Question: How will file downloading actually work?
+
+Tasks, 10/07/14
+
+* Add before_action to all controllers for authentication
+* On uploads/index add:
+=> a. Button for uploading files; directs to uploads/new, to be created
+   => Make sure 'new' form includes a <paperclip> upload file button!
+* Allow user to delete files he's uploaded
+* Add logout action to user controller
+   => Delete uname, uid from session, display flash notice, redirect to home
+
+* Keep track of user id, username by adding these to session on login.(already done) 
+
+

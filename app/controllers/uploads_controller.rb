@@ -42,6 +42,7 @@ class UploadsController < ApplicationController
 
   def create
     @upload = Upload.new(upload_params)
+    @upload.user_id = session[:user_id]
     if @upload.save
       flash[:notice] = "Uploaded successfully!"      
       redirect_to(:action => 'index')
@@ -53,7 +54,7 @@ class UploadsController < ApplicationController
   private
 
   def upload_params
-    params.require(:upload).permit(:name, :description, :doc_file_name, :doc_content_type, :doc_file_size, :doc_updated_at)
+    params.require(:upload).permit(:name, :description, :doc)
   end
 
 end
