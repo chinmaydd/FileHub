@@ -1,4 +1,7 @@
 class UploadsController < ApplicationController
+
+  before_action :confirm_logged_in , :except => [:home,:attempt_login]
+
   def index
   	@uploads=Upload.all.sorted
   end
