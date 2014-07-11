@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140705121223) do
+ActiveRecord::Schema.define(version: 20140710181202) do
 
   create_table "uploads", force: true do |t|
     t.integer  "no_of_downloads",  default: 0, null: false
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20140705121223) do
     t.string   "doc_content_type"
     t.integer  "doc_file_size"
     t.datetime "doc_updated_at"
+    t.string   "name"
+    t.string   "description"
   end
 
   add_index "uploads", ["user_id"], name: "index_uploads_on_user_id", using: :btree

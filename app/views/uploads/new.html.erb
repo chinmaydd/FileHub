@@ -1,0 +1,18 @@
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="uploads new">
+	<h2>Create Subject</h2>
+
+	<%= form_for(:upload, :html => { :multipart => true}, :url => {:action => 'create'}) do |f| %>
+
+		<%= render(:partial => "form", :locals => {:f => f}) %> 
+
+		<div class="form-buttons">
+		<tr>
+			<%= f.submit "Upload" %>
+		</tr>
+		</div>
+	<% end %>
+</div>
+
+

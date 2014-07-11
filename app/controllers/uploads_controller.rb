@@ -7,9 +7,8 @@ class UploadsController < ApplicationController
   end
 
 
-def home
-	
-end
+  def home
+  end
 
 
   def show
@@ -35,6 +34,58 @@ end
   		flash[:notice] = "Invalid username/password combination."
   		redirect_to(:action => 'home')
   	end
+  end
+
+  def new
+    @upload = Upload.new(:name => "default", :description => "your description here")
+  end
+
+  def create
+    @upload = Upload.new(upload_params)
+    @upload.user_id = session[:user_id]
+    if @upload.save
+      flash[:notice] = "Uploaded successfully!"      
+      redirect_to(:action => 'index')
+    else
+      render("new")
+    end
+  end
+
+  def delete
+    @upload=Upload.find(params[:id])
+  end
+  
+  def destroy
+    @upload=Upload.find(params[:id])
+    current_user = User.find(session[:user_id]) 
+    if current_user.uploads.include?(@upload)
+       @upload.doc=nil
+       @upload.save
+    else 
+       flash[:notice] = "Please dont try to delete what doesnt belong to you "
+    end
+  redirect_to(:action => 'index')
+  end
+
+  def logout
+    session[:user_id] = nil
+    session[:username] = nil
+    flash[:notice] = "You are now logged out"
+    render("home")
+  end
+
+  def download_file
+    puts params[:uid]
+    upload=Upload.find(params[:uid])
+    upload.no_of_downloads+=1
+    upload.save
+    send_file upload.doc.path
+  end
+
+  private
+
+  def upload_params
+    params.require(:upload).permit(:name, :description, :doc)
   end
 
 end

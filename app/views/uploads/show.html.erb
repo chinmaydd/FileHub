@@ -10,7 +10,11 @@
 		</tr>
 		<tr>
 			<th>Name</th>
-			<td><%= @upload.doc_file_name %></td>
+			<td><%= @upload.name %></td>
+		</tr>
+		<tr>
+			<th>Description</th>
+			<td><%= @upload.description %></td>
 		</tr>
 		<tr>
 			<th>Uploader's ID</th>
@@ -37,5 +41,8 @@
 			<td><%= @upload.no_of_downloads %></td>
 		</tr>
 	</table>
+
+	<%= link_to("Download", {:action => 'download_file' , :uid => @upload.id}, :class => 'action show') %>
+
 </div>
 
