@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_action :confirm_logged_in 
+  before_action :confirm_logged_in
 
   def index
   end
