@@ -12,7 +12,9 @@
       <td class="center"><%= upload.doc_content_type %></td>
       <td class="actions">
         <%= link_to("Show", {:action => 'show' , :id => upload.id}, :class => 'action show') %>
-        <%= link_to("Delete", {:action => 'delete' , :id => upload.id}, :class => 'action delete') %>
+        <% if upload.user_id == session[:user_id] %>
+          <%= link_to("Delete", {:action => 'delete' , :id => upload.id}, :class => 'action delete') %>
+          <% end %>
       </td>
     </tr>
     <% end %>
