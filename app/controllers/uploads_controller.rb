@@ -67,6 +67,13 @@ class UploadsController < ApplicationController
   redirect_to(:action => 'index')
   end
 
+  def logout
+    session[:user_id] = nil
+    session[:username] = nil
+    flash[:notice] = "You are now logged out"
+    render("home")
+  end
+
   private
 
   def upload_params
