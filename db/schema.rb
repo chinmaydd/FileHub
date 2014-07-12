@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140710181202) do
+ActiveRecord::Schema.define(version: 20140712175330) do
 
   create_table "uploads", force: true do |t|
     t.integer  "no_of_downloads",  default: 0, null: false
@@ -29,11 +29,11 @@ ActiveRecord::Schema.define(version: 20140710181202) do
   add_index "uploads", ["user_id"], name: "index_uploads_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "username",   limit: 25
-    t.string   "first_name", limit: 25
-    t.string   "last_name",  limit: 50
-    t.string   "email",                 null: false
-    t.string   "password"
+    t.string   "username",        limit: 25
+    t.string   "first_name",      limit: 25
+    t.string   "last_name",       limit: 50
+    t.string   "email",                      null: false
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
