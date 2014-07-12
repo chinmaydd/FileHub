@@ -4,6 +4,19 @@
 
  <h1>Home Page</h1>
 
+<br>
+
+<h1> Top Downlaods
+
+<% @uploads.find(:all, :limit=> 10 , :order_by => "no_of_downloads desc") do |upload| %>
+    <tr>
+      <td><%= upload.doc_file_name %></td>
+      <td class="center"><%= upload.doc_content_type %></td>
+    </tr>
+    <% end %>
+
+    <br>
+
 <% if session[:user_id]==nil %>
 
 <br><h2>User Login here</h2>
@@ -29,9 +42,6 @@
 
 <%= link_to(" Sign Up", {:action => 'new', :controller => 'users'}) %>
 
-<%end %>
-
 <% end %>
 
-</div>
-
+<% end %>

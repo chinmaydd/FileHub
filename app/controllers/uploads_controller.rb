@@ -8,6 +8,7 @@ class UploadsController < ApplicationController
 
 
   def home
+    @uploads=Upload.all
   end
 
 
