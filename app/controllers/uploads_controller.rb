@@ -59,8 +59,7 @@ class UploadsController < ApplicationController
     @upload=Upload.find(params[:id])
     current_user = User.find(session[:user_id]) 
     if current_user.uploads.include?(@upload)
-       @upload.doc=nil
-       @upload.save
+       @upload.destroy
     else 
        flash[:notice] = "Please dont try to delete what doesnt belong to you "
     end
