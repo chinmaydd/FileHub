@@ -4,7 +4,9 @@
 
  <h1>Home Page</h1>
 
- <br><h2>User Login here</h2>
+<% if session[:user_id]==nil %>
+
+<br><h2>User Login here</h2>
 
 <%= form_for(:user, :url => {:action => 'attempt_login'}) do |f| %>
 
@@ -28,6 +30,8 @@
 <%= link_to(" Sign Up", {:action => 'new', :controller => 'users'}) %>
 
 <%end %>
+
+<% end %>
 
 </div>
 
