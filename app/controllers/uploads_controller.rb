@@ -76,7 +76,9 @@ class UploadsController < ApplicationController
   def download_file
     puts params[:uid]
     upload=Upload.find(params[:uid])
-    upload.no_of_downloads+=1
+    if upload.user_id != session[:user_id]
+      upload.no_of_downloads+=1
+    end
     upload.save
     send_file upload.doc.path
   end
