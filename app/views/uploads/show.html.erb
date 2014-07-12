@@ -41,5 +41,8 @@
 			<td><%= @upload.no_of_downloads %></td>
 		</tr>
 	</table>
+
+	<%= link_to("Download", {:action => 'download_file' , :uid => @upload.id}, :class => 'action show') %>
+
 </div>
 

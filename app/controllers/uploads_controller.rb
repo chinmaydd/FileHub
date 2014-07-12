@@ -74,6 +74,14 @@ class UploadsController < ApplicationController
     render("home")
   end
 
+  def download_file
+    puts params[:uid]
+    upload=Upload.find(params[:uid])
+    upload.no_of_downloads+=1
+    upload.save
+    send_file upload.doc.path
+  end
+
   private
 
   def upload_params
