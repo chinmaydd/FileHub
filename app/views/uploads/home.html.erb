@@ -8,6 +8,7 @@
 
 <h1> Top Downlaods
 
+<% unless @uploads.nil? %>
 <% @uploads.find(:all, :limit=> 10 , :order_by => "no_of_downloads desc") do |upload| %>
     <tr>
       <td><%= upload.doc_file_name %></td>
@@ -16,6 +17,7 @@
     <% end %>
 
     <br>
+<% end %>
 
 <% if session[:user_id]==nil %>
 
