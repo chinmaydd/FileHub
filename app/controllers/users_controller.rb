@@ -14,6 +14,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_param)
     if @user.save
+      session[:user_id] = @user.id
+      session[:username] = @user.username
       flash[:notice] = 'User created.'
       redirect_to(:action => 'index', :controller => 'uploads')
     else
