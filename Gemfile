@@ -42,4 +42,4 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 
 # Use devise for authentication
-gem 'devise', '~> 3.2.4'
+# gem 'devise', '~> 3.2.4'

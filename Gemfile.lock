@@ -44,12 +44,6 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.4)
       climate_control (>= 0.0.3, < 1.0)
-    devise (3.2.4)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
-      thread_safe (~> 0.1)
-      warden (~> 1.2.3)
     erubis (2.7.0)
     hike (1.2.3)
     i18n (0.6.9)
@@ -61,7 +55,6 @@ GEM
     minitest (5.3.5)
     multi_json (1.10.1)
     mysql2 (0.3.16)
-    orm_adapter (0.5.0)
     polyglot (0.3.5)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -105,15 +98,12 @@ GEM
       polyglot (>= 0.3.1)
     tzinfo (1.2.1)
       thread_safe (~> 0.1)
-    warden (1.2.3)
-      rack (>= 1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  devise (~> 3.2.4)
   mysql2
   paperclip!
   rails (= 4.1.1)
