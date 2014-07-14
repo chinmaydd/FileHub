@@ -9,6 +9,9 @@ class UploadsController < ApplicationController
 
   def home
     @uploads=Upload.all
+    @uploads.each do |u|
+    print u.name
+    end
   end
 
 
