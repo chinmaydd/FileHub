@@ -21,14 +21,14 @@ class UploadsController < ApplicationController
   	if params[:user][:username].present? && params[:user][:password].present?
   		found_user = User.where(:username => params[:user][:username]).first
   		if found_user
-        if found_user.password==params[:user][:password]
+        if found_user.authenticate(params[:user][:password])
   			 authorized_user = found_user
         end
   		end
   	end
   	if authorized_user
   		session[:user_id] = authorized_user.id
-      	session[:username] = authorized_user.username
+      session[:username] = authorized_user.username
   		flash[:notice] = "You are now logged in."
   		redirect_to(:action => 'index', :controller => 'uploads')
   	else
