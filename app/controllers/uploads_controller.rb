@@ -21,7 +21,7 @@ class UploadsController < ApplicationController
   	if params[:user][:username].present? && params[:user][:password].present?
   		found_user = User.where(:username => params[:user][:username]).first
   		if found_user
-        if found_user.password==params[:user][:password]
+        if found_user.authenticate(params[:user][:password])
   			 authorized_user = found_user
         end
   		end
