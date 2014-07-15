@@ -3,7 +3,7 @@
 <div class="file show">
 	<h2>Show File: upload.doc_file_name</h2>
 
-	<table summary="File detail view">
+	<table class="table table-striped table-hover" summary="File detail view">
 		<tr>
 			<th>File ID</th>
 			<td><%= @upload.id %></td>
@@ -41,8 +41,9 @@
 			<td><%= @upload.no_of_downloads %></td>
 		</tr>
 	</table>
-
+	<button type="button" class="btn btn-default">
 	<%= link_to("Download", {:action => 'download_file' , :uid => @upload.id}, :class => 'action show') %>
+	</button>
 
 </div>
 
