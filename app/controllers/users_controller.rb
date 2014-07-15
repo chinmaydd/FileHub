@@ -2,9 +2,6 @@ class UsersController < ApplicationController
   
   before_action :confirm_logged_in, :except => [:new, :create] 
 
-  def index
-  end
-
   
   def new
     @user = User.new
@@ -37,9 +34,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-  end
-
+  
   def delete
   	@user = User.find(params[:id])
   end

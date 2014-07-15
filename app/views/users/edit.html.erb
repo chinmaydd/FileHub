@@ -3,7 +3,7 @@
 
 <%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
 
-<table summary="User form fields">
+<table summary="User form fields" class='table table-striped table-hover'>
   <tr>
     <th><%= f.label(:first_name) %></th>
     <td><%= f.text_field(:first_name) %></td>
@@ -26,9 +26,9 @@
   </tr>
 </table>
 
-<div class="form-buttons">
+<button class="btn btn-default" type="button">
   <%= submit_tag("Update User") %>
-</div>
+</button>
 
 <%end %>
 
