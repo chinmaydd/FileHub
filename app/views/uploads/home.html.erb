@@ -1,8 +1,10 @@
+<div class="alert alert-dismissable alert-success">
 <% if !flash[:notice].blank? %>
 <%= flash[:notice] %>
 <% end %>
+</div>
 
- <h1>Home Page</h1>
+<h1>Home Page</h1>
 
 <br>
 
@@ -39,13 +41,15 @@
 </table>
 
 <div class="form-buttons">
+  <button type="button" class="btn btn-default">
   <%= submit_tag("Login") %>
+  </button>
 </div>
 
-<br><h2>No iD? Sign Up now!</h2>
-
+<br><h2>No ID? Sign Up!</h2>
+<button type="button" class="btn btn-default">
 <%= link_to(" Sign Up", {:action => 'new', :controller => 'users'}) %>
-
+</button>
 <% end %>
 
 <% end %>
