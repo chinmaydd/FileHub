@@ -1,4 +1,6 @@
+<button type="button" class="btn btn-default">
 <%= link_to("<< Back to list", {:action => 'index'}, :class => 'back-link') %>
+</button>
 
 <div class="Uploads delete">
   <h2>Delete Uploaded File</h2>
@@ -10,7 +12,9 @@
     <p class="reference-name"><%= @upload.name %></p>
 
     <div class="form-buttons">
-      <%= submit_tag("Delete File") %>
+    <button type="button" class="btn btn-default">
+      <%= "Delete File" %>
+    </button>
     </div>
 
   <% end %>
