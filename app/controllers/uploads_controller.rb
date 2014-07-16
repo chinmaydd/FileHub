@@ -8,10 +8,7 @@ class UploadsController < ApplicationController
 
 
   def home
-    @uploads=Upload.all
-    @uploads.each do |u|
-    print u.name
-    end
+    @uploads=Upload.all.limit(5).sorted
   end
 
 

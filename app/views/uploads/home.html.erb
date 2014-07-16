@@ -12,7 +12,7 @@
 
 <table class='table table-striped table-hover'>
 <% unless @uploads.nil? %>
-<% @uploads.find(:all, :limit=> 10 , :order_by => "no_of_downloads desc") do |upload| %>
+<% @uploads.each do |upload| %>
     <tr>
       <td><%= upload.doc_file_name %></td>
       <td class="center"><%= upload.doc_content_type %></td>
