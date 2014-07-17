@@ -1,0 +1,265 @@
+
+<ashish1294> Hi. Sorry for being late ! I thought everyone would have gone by now !
+* gunjan (02331a54@gateway/web/freenode/ip.2.51.26.84) has joined #nitkieee
+* ankit_deepak (0e63079e@gateway/web/freenode/ip.14.99.7.158) has joined #nitkieee
+* kavya (0e6075de@gateway/web/freenode/ip.14.96.117.222) has joined #nitkieee
+* gunjan has quit (Client Quit)
+* gunjan (02331a54@gateway/web/freenode/ip.2.51.26.84) has joined #nitkieee
+<ashish1294> I have been too busy lately and I hope you guys are practicing seriously !
+* ankit_deepak_ (0e63bfbc@gateway/web/freenode/ip.14.99.191.188) has joined #nitkieee
+<ashish1294> Am I connected ?
+<medhz> yup
+<TheJoker> yeah...
+<ankit_deepak_> yeah
+<ashish1294> Who is TheJoker ?
+<TheJoker> I'm from another project, just wanted to attend this session, since most of our work is complete...
+* ankit_deepak has quit (Ping timeout: 246 seconds)
+<ashish1294> Well you can join, please use your real name. No harm in it !
+<TheJoker> need to take my mentor's permission for that :(
+<TheJoker> i will .. the next time i join
+<ashish1294> What permission ? you need not take anyone's permission !
+<ashish1294> Who is your mentor ? Let me have a chat with him ! Till then you please use your real name. Without names, It is difficult for me to communicate.
+<ashish1294> Anyways, we will start now
+<ashish1294> We will discuss dijkstra's algorithm 
+<ashish1294> This is probably the "most-used" classical algorithm in Graph
+<ashish1294> Dijkstra developed this algorithm when he was about 20 years old !
+<ashish1294> It is used everywhere from Google Maps to Communication Protocols
+<ashish1294> The objective of this algorithm is to determine the shortest past from a source node to every other node !
+<ashish1294> First let us look at the naive algorithm.
+<ashish1294> How many paths are possible in a graph between any 2 nodes ?
+<medhz> infinite
+<ashish1294> @medhz - How ?
+<vadi> max n-2
+<ashish1294> Suppose there is a graph with only 2 nodes !
+<ashish1294> And one edge
+<ashish1294> It has only one path, not infinite !
+<ankit_deepak_> 2^(n-2)?
+<aadi> 2^E -1
+<medhz> okay yeah so n-2
+<vadi> no sorry wrong
+<ashish1294> @vadi - Again consider the same example ! - n=2, and only edge between both nodes. (n-2) = 0. 
+* pvk (6ad8e582@gateway/web/freenode/ip.106.216.229.130) has joined #nitkieee
+<aadi> 2^edges -1
+<ashish1294> @ankit = any argument behind ur answer ?
+<ashish1294> @aadi : Any Arguments ?
+<ankit_deepak_> when direct then 1 when through one node (n-2)C1 etc
+<ashish1294> See getting right answer is not important, we need to come up with right arguments !
+<pvk> can u pls repeat d ques?
+<ankit_deepak_> so sum of 1+(n-2)C1+(n-2)C2+........(n-2)C(n-2)=2^(n-2)
+<ashish1294> @pvk = Max number of paths in a graph ?
+<ashish1294> @ankit = Your argument is wrong !
+<vadi> (n-2)! ?
+<vadi> lets write the nodes traversed
+<vadi> start ? ? ? .... (n-2) times end
+<vadi> so (n-2)! ?
+<aadi> if triangle
+<ashish1294> Can I simply say that, max no of path can always occur in a complete graph i.e, Graph with n nodes and nC2 edges !
+<vadi> yeah
+<shravya> yup
+<pvk> ya
+<chinmay_dd> yes
+<varsha> ya
+<ankitTripathi> yep
+<kavya> yes
+<ankit_deepak_> ya
+<abraham__> yes
+<ashish1294> The closest answer was that of medhz !
+* aishwarya (75c088a9@gateway/web/freenode/ip.117.192.136.169) has joined #nitkieee
+<ashish1294> It is actually an NP Problem - with no known solution 
+<ashish1294> However, we cannot establish an upper limit !
+<vadi> (1+n+n(n-1)+...+n!)
+* mb1994 (~mayank@116.203.204.65) has joined #nitkieee
+<ashish1294> @vadi - You are right ! That is the max limit !
+<vadi> yeah so start ????? end
+* Disconnected (Connection reset by peer).
+* Now talking on #nitkieee
+<ashish1294> We have dist[] and par[]
+<ashish1294> Now we choose the source node , say src
+<ashish1294> we mark => dist[src] = 0; par[src] = src 
+<ashish1294> Then the actual algo start,
+<ashish1294> Consider all the neighbors of source
+<ashish1294> The edge between source and all its neighbor has some weight
+<ashish1294> or rather cost 
+<ashish1294> the cost of reaching the source is 0 and the cost of reaching the neighbor from source is say "c"
+<ashish1294> then the cost of reaching the neighbor is 
+<ashish1294> "c" itself
+<ashish1294> Now if the there are say 5 neighbors of src (v1,v2,v3,v4,v5) with edge cost as c1,c2,c3,c4,c5. Then the minimum cost of reaching all the neighbors from src is c1,c2,c3,c4,c5. Suppose c3 is minimum of all. I argue that the cost of reaching v3 cannot be less than c3 !
+<ashish1294> However we cannot say the same for v1,v2,v4,v5
+<ashish1294> Okay, here is the code - http://ideone.com/wRjZyF
+<ashish1294> mH is a min-Heap
+<ashish1294> We initialize a heap with all nodes
+<ashish1294> The nodes are at INT_MAX distance
+<ashish1294> Then we decrease the dist[src] to 0
+<ashish1294> After that we repeat until there is any element left in the heap 
+<ashish1294> Recall the Min-Heap extraction, that we have discussed !
+<ashish1294> The first 3 lines within the while loops give us the the node with currently minimum distance!
+<ashish1294> and also the distance value
+<ashish1294> After that we iterate through all the neighboring nodes and decrease their cost
+<ashish1294> We decrease the cost only when we are sure that it will decrease !
+<ashish1294> Ans thus that if condition !
+<ashish1294> Is it difficult to follow ?
+<ashish1294> Anyone here ?
+<medhz> yeah here
+<chinmay_dd> Yes
+<kavya> yes 
+<ankit_deepak_> yea
+<ashish1294> I guess it is going above everyone's head ?
+<kavya> it is a little difficult to follow but I kind of get it
+<ashish1294> The idea is extract the min node, update it's neighbors. Again extract th min node and update its neighbors 
+<varsha> what is listnode.... ?
+<ashish1294> And keep doing it until all are extracted !
+<ashish1294> listnode is the list of neighboring nodes !
+<ashish1294> Adjacency List representation of graph ! Recall the discussion. I hope all of you implemented it !
+<varsha> k ty
+<medhz> is it tt->dist?
+<ashish1294> listnode is structure defined in this link = http://ideone.com/jg7oHl
+<ashish1294> tt->dist will give me the current distance of that neighboring node
+<medhz> oh okay got it!
+<ashish1294> Cormen has a nice pictorial example 
+<ashish1294> Now the important part - Complexity Analysis !
+<ashish1294> The implementation i gave you is a very typical implementation 
+<ashish1294> It has all sorts of optimization !
+<ashish1294> How many times will the while loop iterate ?
+<chinmay_dd> number of nodes?
+<ashish1294> right - Number of nodes which is V !
+<vadi> O(V)
+<aadi> V-1
+<chinmay_dd> V yes
+<ashish1294> Now in each iteration we have one extract min ! What is the complexity of extract min ?
+<aadi> log n
+<chinmay_dd> yes log n
+<vadi> O(1)
+<chinmay_dd> counting heapify as well
+<ashish1294> Also note that mH,init() is essentially BUILD_HEAP function which is O(V) again !
+<ashish1294> @ chimnay - We are not yet calling heapify !
+<ashish1294> We just extracted the minimum node 
+<ashish1294> That is O(1)
+<ashish1294> With Heapify it is log n !
+<chinmay_dd> that is what i thought.i mean we need to delete that node and then re-heapify the rest of them right?
+<ashish1294> Yes !
+<chinmay_dd> so extract min is O(1) and then log n
+<chinmay_dd> i told you counting both :p
+<aadi> yes
+<ashish1294> Now after extracting minimum, we have to update neighboring nodes 
+<ashish1294> Now many nodes will be updated at max ?
+<vadi> V-1
+<medhz> yeah total minus the first
+<medhz> v-1
+<ashish1294> it can execute (v-1) times in a single while loop.
+<ashish1294> So what is the complexity ?
+<ashish1294> I mean Overall Big-Oh Complexity ?
+* abhishek_d has quit (Ping timeout: 246 seconds)
+<ashish1294> Someone answer !
+<aadi> E log V
+<chinmay_dd> initially E and then E Log V
+<vadi> O(V Log V)
+<ashish1294> We just discuss that each iteration can take upto logV + (V-1) time
+<vadi> O((E+V)Log V)
+<ashish1294> @vadi - You are right ! But How ?:
+* ankit_deepak (0e63ad1f@gateway/web/freenode/ip.14.99.173.31) has joined #nitkieee
+<chinmay_dd> oh yeah
+<ashish1294> What we discussed it is V(logV + (V-1))
+<vadi> yeah so outer while runs for V times then we extract min and heapify so V log V
+<ashish1294> ~ O(V^2)
+* pvk has quit (Quit: Page closed)
+<ashish1294> Okay what is the complexity of decreasekey ?
+<vadi> log v
+<ashish1294> Yeah !
+<ashish1294> And in each while loop Decrease Key can be called (V-1) time
+* ankit_deepak_ has quit (Ping timeout: 246 seconds)
+<ashish1294> So each while loop = logV + (V-1)logV
+* abhishek_d (dfe3558a@gateway/web/freenode/ip.223.227.85.138) has joined #nitkieee
+<ashish1294> So the complexity should be O(V*(logv + (V-1)logV))
+<ashish1294> Which is ~O(V^2 Log V)
+<ashish1294> How can you say it is O((E+V)logV) ?
+* kavya has quit (Quit: Page closed)
+<vadi> V^2==E
+<vadi> max case
+<chinmay_dd> nC2 case
+<ashish1294> @Vadi : you are right! But O(V^2 log V) is not equal to O((E+V)logV)
+<ashish1294> @chinamy : I can't get u !
+<ashish1294> You mean a complete graph where E = NC2 = O(V^2)
+<ashish1294> ?
+<chinmay_dd> yeah 
+<chinmay_dd> that is what i wanted to say
+<chinmay_dd> max case
+<ashish1294> That is true but, O(V^2 log V) is not equal to O((E+V)logV) !!! We arrived at the former one ! How can we conclude the latter one !
+<vadi> yeah it is actually
+<vadi> V^2==E==E+V
+<vadi> coz min(E)==v
+<ashish1294> @vadi = Well see that carefully - max(E) = V^2 ! It is true! But V^2 = E or even max(V^2) != E !!!!!!!
+<ashish1294> We can substitute a value with a higher value. E<= V^2. So O(E) = O(V^2) but, O(V^2) != O(E)
+<ashish1294> We did that in Asymptotic analysis !
+<ashish1294> @TheJoker = Y don't you take part ?
+<vadi> how?
+<vadi> isnt o(n)==o(2n) and o(2n)==o(n) 
+<TheJoker> I was following the chat... pretty to new to this stuff... so didnt want to distract you guys unecessarily :P
+<ashish1294> See When we say that F = O(E), it implies that F <= E right ?
+<vadi> yeah
+<vadi> no of the order of e
+<ashish1294> @vadi = Actually when we say F(x) = O(E), it implies that, F(x) <= E for large x
+<ashish1294> remember !
+<ashish1294> Note that large x !
+<vadi> oh yeah got confused with theta
+<ashish1294> O(n) = O(2n) because it is only constant 
+<vadi> sorry
+<ashish1294> Constant wont matter at Large x !
+<vadi> 2n is not O(n) but theta(n)
+<ashish1294> So say F(x) = O(2n) means F(x) <= 2*n for say x >= y ! Now we can say that F(x) <= n, for x >= y1 ..........note y1 can be bigger or smaller than y ! Doesnt matter !
+<chinmay_dd> but we can also consider it as O(n) vaguely right?
+<ashish1294> Exactly - It is Theta(n)
+<ashish1294> That was my point !
+<vadi> Yeah correct
+<ashish1294> And so O(v^2) != Theta(E) or O(V^2)
+<ashish1294> So do u all agree that complexity should be O(V(logV + (V-1)logV))
+<ashish1294> ?
+<vadi> yeah
+<ashish1294> But it is wrong !
+<ashish1294> Note that in a single while loop, decreseKey has "V-1" calls, but the total number of calls across all iteration of while loop won't exceed E !
+* gunjan has quit (Ping timeout: 246 seconds)
+<ashish1294> Note that every decrease key is associated with an edge !
+<ashish1294> A vertex can have maximum of V-1 outgoing edges but, total number of edges across all vertices has to equal to E !
+<ashish1294> So Decease Key is called only E times 
+<vadi> oh yeah
+<ashish1294> Hence Total Complexity is  O(VlogV) + O(Elogv)
+<vadi> so v(v-1) max assumed is actually E itself
+<ashish1294> VlogV from while loop and ElogV from decreasekey
+<ashish1294> Yeah !
+<ashish1294> But I hope you guys understood that delicacy of Big Oh Notation !
+<vadi> yeah
+<ashish1294> Be prepared to tackle such tricky analysis questions in 3rd semester !
+<ashish1294> Everyone get this right ?
+<chinmay_dd> somewhat yes
+<medhz> yeah got it
+<varsha> yeah
+<ashish1294> It is even possible to reduce the complexity of DecreaseKey operation to O(1) instead of O(logV) using a Fibonacci Heap instead of Binary Heap (which we discussed)
+<abraham__> yeah sort of
+<varsha> but wouldnt think so much
+<ankit_deepak> kind of yes
+<aadi> yup
+<ashish1294> So we can get the complexity down to O(E + VlogV)
+<ashish1294> But implementing Fibonacci Heap is very difficult . It took me 3-4 nights to do it ! And I don't think that it is possible for someone to implement it in a 3-5 hr long competition ! So Generally O((E+V)logV) solution is always accepted 
+<TheJoker> is heaps actually needed for a dijkstra algo implementation ?
+<aadi> yup else log n  wud b n
+<TheJoker> i mean ... are u giving us this heap method with competitive programming in mind ?
+<ashish1294> No, Heap is not necessary ! We can do it without heap using simple vertex set ! and as aadi set it will be O(n) instead on O(logn)
+<TheJoker> usually for graph questions the test is not optimization right... i meanthe data set is small
+<ashish1294> Yeah! Of course ! Do not expect Heap Method to be taught in DSA course :P
+<TheJoker> the tough part is cracking the algo which is usually mixed with another one right ?
+<ashish1294> For competitive programming solution without heap will not be accepted !
+<TheJoker> the n will be that large ?
+<ashish1294> Yeah ! Cracking the algo is also important. It is generally mixed too.
+<ashish1294> Yeah! N is large !
+<ashish1294> N is around 10^5 !
+* mb1994 has quit (Quit: Leaving)
+<TheJoker> 10^5 for a graph algo ? wow ! that's scary
+<varsha> .
+<ashish1294> It will fail if heap is not used ! It will fail even if heap is not optimized ! 
+<ashish1294> http://www.spoj.com/problems/EZDIJKST/
+<ashish1294> This is a typical straight forward problem 
+<ashish1294> Here Solution will pass without heap
+<ashish1294> But other problems it won't
+<TheJoker> oh ok .. thanks
+<ashish1294> Ok one more thing guys this algorithm is example of greedy approach !
+<ashish1294> Many of you were asking me about greedy !
+<ashish1294> We will discuss greedy algo separately though !

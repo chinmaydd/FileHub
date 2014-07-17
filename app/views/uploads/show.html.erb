@@ -1,6 +1,6 @@
-<button type="button" class="btn btn-default">
-<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
-</button>
+
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'btn btn-default') %>
+
 
 <div class="file show">
 	<h2>Show File: upload.doc_file_name</h2>
@@ -43,9 +43,9 @@
 			<td><%= @upload.no_of_downloads %></td>
 		</tr>
 	</table>
-	<button type="button" class="btn btn-default">
-	<%= link_to("Download", {:action => 'download_file' , :uid => @upload.id}, :class => 'action show') %>
-	</button>
+	
+	<%= link_to("Download", {:action => 'download_file' , :uid => @upload.id, :class => 'action show'} , :class => "btn btn-default" ) %>
+	
 
 </div>
 
