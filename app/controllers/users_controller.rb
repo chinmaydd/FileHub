@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @user=User.find(params[:id])
     if @user.update_attributes(user_param)
       flash[:notice] = "User data updated succesfully"
-      redirect_to(:action => 'index')
+      redirect_to(:controller => 'uploads', :action => 'home')
     else
       render('edit')
     end
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   	user = User.find(params[:id])
     user.destroy
     flash[:notice] = "User '#{user.username}' destroyed successfully!"
-    redirect_to(:action => 'index')
+    redirect_to(:controller => 'uploads' , :action => 'home')
   end
 
   private

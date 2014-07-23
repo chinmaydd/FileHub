@@ -40,14 +40,12 @@
   </tr>
 </table>
 
-<div class="form-buttons">
-  <%= submit_tag("Login", class:"btn btn-default") %>
-</div>
+<%= submit_tag("Login", class:"btn btn-default") %>
 
 <br><h2>No ID? Sign Up!</h2>
-<button type="button" class="btn btn-default">
-<%= link_to(" Sign Up", {:action => 'new', :controller => 'users'}) %>
-</button>
+
+<%= link_to(" Sign Up", {:action => 'new', :controller => 'users'}, :class => "btn btn-default" ) %>
+
 <% end %>
 
 <% end %>

@@ -1,5 +1,8 @@
 <% @page_title = 'User' %>
 
+<%= link_to("<< Back to home", {:controller => 'uploads' , :action => 'home'}, :class => 'btn btn-default') %>
+
+
 <div class="user new">
   <h2>Create User</h2>
 
@@ -7,9 +10,7 @@
 
     <%= render(:partial => 'form', :locals => {:f => f} ) %>
 
-    <button class="btn btn-default" type="button">
-      <%= submit_tag('Create User') %>
-    </button>
+      <%= submit_tag('Create User' , :class => "btn btn-default" ) %>
 
   <% end %>
 </div>
