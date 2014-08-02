@@ -4,6 +4,7 @@ class Upload < ActiveRecord::Base
 
 	has_attached_file :doc
 	validates_attachment_size :doc, :less_than => 10.megabytes
+	validates_attachment_presence :doc
 	do_not_validate_attachment_file_type :doc
 	belongs_to :user
 
