@@ -22,9 +22,9 @@
   <%= link_to("Upload File", {:action => 'new', :controller => 'uploads'} , :class => "btn btn-default") %>
   <br>
   <br>
-  <button type="button" class="btn btn-default">
-  <%= link_to("Edit User Details", :action => 'edit', :controller => 'users', :id => session[:user_id]) %>
-  </button>
+
+  <%= link_to("Edit User Details", {:action => 'edit', :controller => 'users', :id => session[:user_id]} , :class => "btn btn-default") %>
+  
   <br>
   <br>
 

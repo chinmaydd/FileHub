@@ -34,18 +34,6 @@ class UsersController < ApplicationController
     end
   end
 
-  
-  def delete
-  	@user = User.find(params[:id])
-  end
-
-  def destroy
-  	user = User.find(params[:id])
-    user.destroy
-    flash[:notice] = "User '#{user.username}' destroyed successfully!"
-    redirect_to(:controller => 'uploads' , :action => 'index')
-  end
-
   private
 
   def user_param
