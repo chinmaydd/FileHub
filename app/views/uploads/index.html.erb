@@ -24,6 +24,9 @@
   </button>
   <br>
   <br>
+  <button type="button" class="btn btn-default">
+  <%= link_to("Edit User Details", :action => 'edit', :controller => 'users', :id => session[:user_id]) %>
+  </button>
   <br>
   <br>
   <button type="button" class="btn btn-default">

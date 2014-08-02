@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     @user=User.find(params[:id])
     if @user.update_attributes(user_param)
       flash[:notice] = "User data updated succesfully"
-      redirect_to(:action => 'index')
+      redirect_to(:action => 'index', :controller => 'uploads')
     else
       render('edit')
     end
