@@ -26,10 +26,19 @@
   </tr>
 </table>
 
-<button class="btn btn-default" type="button">
-  <%= submit_tag("Update User") %>
-</button>
+
+  <%= submit_tag("Update User" , :class => "btn btn-default" ) %>
 
 <%end %>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<%= link_to(" Delete User?", {:action => 'destroy' , :id => @user.id} , :class => 'btn btn-default' ) %>
 
 </div>

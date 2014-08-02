@@ -9,9 +9,8 @@
 
 		<p class="reference-name"><%= @user.username %></p>
 
-		<button class="btn btn-default" type="button">
-		<%= submit_tag("Delete User") %>
-		</button>
+		
+		<%= submit_tag("Delete User") , :class => "btn btn-warning" %>
 
 	<% end %>
 </div>

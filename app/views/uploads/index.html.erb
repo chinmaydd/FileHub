@@ -19,9 +19,7 @@
     </tr>
     <% end %>
   </table>
-  <button type="button" class="btn btn-default">
-  <%= link_to("Upload File", {:action => 'new', :controller => 'uploads'}) %>
-  </button>
+  <%= link_to("Upload File", {:action => 'new', :controller => 'uploads'} , :class => "btn btn-default") %>
   <br>
   <br>
   <button type="button" class="btn btn-default">
@@ -29,7 +27,7 @@
   </button>
   <br>
   <br>
-  <button type="button" class="btn btn-default">
-  <%= link_to("Logout", :action => 'logout') %>
-  </button>
+  
+  <%= link_to("Logout", {:action => 'logout' } , :class => "btn btn-default" )  %>
+  
 </div>
