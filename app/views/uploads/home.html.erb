@@ -23,6 +23,12 @@
 <% end %>
 </table>
 
+<% if session[:user_id]!=nil %>
+
+<%= link_to(" Go to Index", {:action => 'index'}, :class => "btn btn-default" ) %>
+
+<% end %>
+
 <% if session[:user_id]==nil %>
 
 <br><h2>User Login here</h2>
